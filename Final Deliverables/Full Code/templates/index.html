@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Forest Fire Detector</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="static\style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-light" style="background-color: #032f0f">
+        <h1 class="nav-title">
+          IBM - Emerging Methods for Early Detection of Forest Fires
+        </h1>
+        <p class="nav-para">
+          Anjalai Ammal Mahalingam Engineering College, Kovilvenni
+        </p>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="jumbotron bg-primary" class="aside1">
+        Forest fires are a major environmental issue, creating economic and
+        ecological damage while endangering human lives. There are typically
+        about 100,000 wildfires in the United States every year. Over 9 million
+        acres of land have been destroyed due to treacherous wildfires.
+      </div>
+      <aside class="jumbotron bg-primary">
+        <b class="pred">Team ID :</b> PNT2022TMID32964
+        <br />
+        <b class="pred">Team Size :</b> 4
+        <br />
+        <b class="pred">Team Leader :</b> VINOTH KUMAR M<br />
+        <b class="pred">Team member 1 :</b> SUDHARSAN S <br />
+        <b class="pred">Team member 2 :</b> VENKADA SUBRAMANIAN D <br />
+        <b class="pred">Team member 3 :</b> VEERENTHIRAN S <br />
+      </aside>
+
+      <br /><br />
+      <form
+        class="form-horizontal"
+        action="/submit1"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div class="file-upload form-group">
+          <div class="file-select">
+            <label class="file-select-button control-label col-sm-2" for="pwd">
+              Upload Your Image :
+            </label>
+
+            <input
+              type="file"
+              class="form-control"
+              placeholder="Hours Studied"
+              name="my_image"
+              id="pwd"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-2">
+            <button type="submit" class="btn btn-success">Predict</button>
+          </div>
+        </div>
+      </form>
+
+      {% if prediction %}
+      <img
+        src="{{img_path}}"
+        height="300px"
+        width="300px"
+        border-radius="5px"
+      />
+      <br /><br />
+
+      <h2>I think Given Image Having : <b class="pred"> {{prediction}} </b></h2>
+
+      {% endif %}
+    </div>
+  </body>
+</html>
